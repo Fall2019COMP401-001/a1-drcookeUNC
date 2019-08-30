@@ -27,7 +27,7 @@ public class A1Novice {
 		        double itemPrice = scan.nextDouble();
 		        totalPrice[i] += itemQuantity * itemPrice;
 		    }
-		    System.out.println(firstNames[i].substring(0, 1) + " " + lastNames[i] + ": "
+		    System.out.println(firstNames[i].substring(0, 1) + ". " + lastNames[i] + ": "
 		            + String.format("%.2f", totalPrice[i]));
 		}
 	}
