@@ -7,7 +7,6 @@ public class A1Jedi {
 	public static void main(String[] args) {
 		
 		Scanner scan = new Scanner(System.in);
-
 		int numItems = scan.nextInt();
 		
 		String[] itemNames = new String[numItems];
@@ -43,6 +42,8 @@ public class A1Jedi {
 				custItemNames[i][j] = scan.next();
 				
 				int index = getItemIndex(itemNames, custItemNames[i][j]);
+				
+				// if this item has already been purchased by this customer, do not count them as a new customer 
 				if (!alreadyPurchased[index]) {
 					alreadyPurchased[index] = true;
 					custPurchasedCount[index] += 1;
@@ -50,7 +51,11 @@ public class A1Jedi {
 				itemPurchasedCount[index] += custItemQuantity[i][j];
 			}
 		}
-				
+		
+		scan.close();
+		
+		// loop through each item in the store's inventory and
+		// output how many customers purchased each item
 		for (int i=0; i<itemNames.length; i++) {
 			if (custPurchasedCount[i] == 0) {
 				System.out.println("No customers bought " + itemNames[i]);
@@ -62,6 +67,8 @@ public class A1Jedi {
 		
 	}
 	
+	// accepts an array of items in the store and a String name of an item purchased
+	// returns the index of the purchased item in the array
 	static int getItemIndex(String[] itemNames, String custItemName) {
 		int index = -1;
 		for (int i=0; i<itemNames.length; i++) {

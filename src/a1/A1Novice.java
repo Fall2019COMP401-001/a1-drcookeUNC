@@ -15,8 +15,7 @@ public class A1Novice {
         int[] numItems = new int[numCustomers];
         double[] totalPrice = new double[numCustomers];
 		
-		for (int i=0; i<numCustomers; i++) {
-		    
+        for (int i=0; i<numCustomers; i++) {
 		    firstNames[i] = scan.next();
 		    lastNames[i] = scan.next();
 		    numItems[i] = scan.nextInt();
