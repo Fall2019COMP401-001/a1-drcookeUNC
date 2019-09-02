@@ -28,7 +28,6 @@ public class A1Adept {
 		double[] custTotals = new double[numCustomers];
 		
 		for (int i=0; i<numCustomers; i++ ) {
-			// For each customer i
 			firstNames[i] = scan.next();
 			lastNames[i] = scan.next();
 			numCustomerItems[i] = scan.nextInt();
@@ -36,15 +35,14 @@ public class A1Adept {
 			custItemNames[i] = new String[numCustomerItems[i]];
 			
 			for (int j=0; j<numCustomerItems[i]; j++) {
-				// For each item j they bought
 				custItemQuantity[i][j] = scan.nextInt();
 				custItemNames[i][j] = scan.next();
 			}
 			custTotals[i] = calculateTotal(itemNames, itemPrices, custItemQuantity[i], custItemNames[i]);
 		}
 		
-		int indexBiggest = getBiggest(custTotals);
-		int indexSmallest = getSmallest(custTotals);
+		int indexBiggest = getBiggestIndex(custTotals);
+		int indexSmallest = getSmallestIndex(custTotals);
 		double average = getAverage(custTotals);
 		
 		System.out.println("Biggest: " + firstNames[indexBiggest] + " " + lastNames[indexBiggest] + " ("
@@ -66,7 +64,7 @@ public class A1Adept {
 		return total;
 	}
 	
-	static int getBiggest(double[] custTotals) {
+	static int getBiggestIndex(double[] custTotals) {
 		int index = 0;
 		double biggest = custTotals[0];
 		for (int i=1; i<custTotals.length; i++) {
@@ -78,7 +76,7 @@ public class A1Adept {
 		return index;
 	}
 	
-	static int getSmallest(double[] custTotals) {
+	static int getSmallestIndex(double[] custTotals) {
 		int index = 0;
 		double smallest = custTotals[0];
 		for (int i=1; i<custTotals.length; i++) {
